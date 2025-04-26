@@ -3,6 +3,15 @@
 ## Changelog
 - Use [next-pages-template](https://github.com/mantinedev/next-pages-template)
 - [Set up VS Code](https://mantine.dev/getting-started/#set-up-vs-code)
+- <details><summary>Fix ...css.mjs.map 404</summary>
+  When DevConsole is opened:
+  
+  ```
+  GET /_next/static/chunks/app/UnstyledButton.module.css.mjs.map 404 in 900ms
+  GET /_next/static/chunks/app/UnstyledButton.module.css.mjs.map 404 in 52ms
+  ```
+  </details>
+
 
 ## Features
 
