@@ -7,12 +7,15 @@ import { NextResponse, type NextRequest } from 'next/server';
 export default async function middleware(request: NextRequest) {
   const pathName = request.nextUrl.pathname;
   // console.log('middleware pathName', pathName); // eslint-disable-line no-console
+  // TODO: check later if workaround is still needed
+  const useWorkaround = true;
+  // https://github.com/mantinedev/mantine/issues/6105
+  // or maybe alternative https://dev.to/yardenporat/how-to-hide-nextjs-14-server-logs-38e9
   if (
+    useWorkaround &&
     pathName.startsWith('/_next/static/chunks/app/') &&
     pathName.endsWith('.module.css.mjs.map')
   ) {
-    // https://github.com/mantinedev/mantine/issues/6105
-    // or maybe alternative https://dev.to/yardenporat/how-to-hide-nextjs-14-server-logs-38e9
     return new NextResponse(null, { status: 200, headers: { 'Content-Type': 'application/json' } });
   }
   if (pathName.startsWith('/_next/static')) {
