@@ -1,5 +1,5 @@
 // -- nextra
-import { Footer, Layout, Navbar } from 'nextra-theme-docs';
+import { Footer, Layout } from 'nextra-theme-docs';
 import { Banner, Head } from 'nextra/components';
 import { getPageMap } from 'nextra/page-map';
 
@@ -11,6 +11,7 @@ import 'nextra-theme-docs/style.css';
 import React from 'react';
 import Link from 'next/link';
 import { ColorSchemeScript, mantineHtmlProps, MantineProvider } from '@mantine/core';
+import { MantineNavBar } from '@/components';
 import { theme } from '../theme';
 
 import '@mantine/core/styles.layer.css';
@@ -18,7 +19,8 @@ import '@mantine/core/styles.css';
 
 // -- nextra
 const banner = <Banner storageKey="some-key">Info message from nextra 🎉</Banner>;
-const navbar = <Navbar logo={<b>Home</b>} />;
+// const navbar = <Navbar logo={<b>Home</b>} />;
+const navbar = <MantineNavBar />;
 const footer = (
   <Footer>
     <p className="mt-6 text-xs">

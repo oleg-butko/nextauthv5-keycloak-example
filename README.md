@@ -12,6 +12,7 @@
   ```
   </details>
 - Add Nextra
+- Add MantineNavBar from credits/1
 
 
 ## Features
@@ -48,4 +49,4 @@
 - `prettier:write` – formats all files with Prettier
 
 ### Credits
-- [Template](https://www.undolog.com/p/elevate-your-nextjs-project-with)  for NextJS app router + Mantine UI + Nextra
+1. [Template](https://www.undolog.com/p/elevate-your-nextjs-project-with)  for NextJS app router + Mantine UI + Nextra
