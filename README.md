@@ -11,6 +11,7 @@
   GET /_next/static/chunks/app/UnstyledButton.module.css.mjs.map 404 in 52ms
   ```
   </details>
+- Add Nextra
 
 
 ## Features
@@ -21,6 +22,7 @@
   - [Storybook](https://storybook.js.org/)
   - [Jest](https://jestjs.io/) setup with [React Testing Library](https://testing-library.com/docs/react-testing-library/intro)
   - ESLint setup with [eslint-config-mantine](https://github.com/mantinedev/eslint-config-mantine)
+- Nextra
 
 ## npm scripts from Mantine template
 
@@ -44,3 +46,6 @@
 - `storybook` – starts storybook dev server
 - `storybook:build` – build production storybook bundle to `storybook-static`
 - `prettier:write` – formats all files with Prettier
+
+### Credits
+- [Template](https://www.undolog.com/p/elevate-your-nextjs-project-with)  for NextJS app router + Mantine UI + Nextra
