@@ -15,6 +15,7 @@ const withNextra = nextra({
 
 export default withNextra(
   withBundleAnalyzer({
+    output: 'standalone',
     reactStrictMode: true,
     cleanDistDir: true,
     eslint: {
