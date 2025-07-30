@@ -1,7 +1,7 @@
 export default {
   index: {
     display: 'hidden',
-    title: 'Documentation',
+    title: '',
     theme: {
       layout: 'full',
       toc: true,
