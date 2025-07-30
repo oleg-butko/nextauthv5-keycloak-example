@@ -11,12 +11,12 @@ export default {
     type: 'page',
     title: 'About',
     theme: {
-      layout: 'full', 
+      layout: 'full',
       pagination: false,
       timestamp: false,
       toc: false,
-      sidebar: false
-    }
+      sidebar: false,
+    },
   },
   links: {
     title: 'More',

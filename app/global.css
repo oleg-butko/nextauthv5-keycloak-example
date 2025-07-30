@@ -1,5 +1,4 @@
 @layer theme;
-
 @import 'nextra-theme-docs/dist/style.css' layer(theme);
 
 /**

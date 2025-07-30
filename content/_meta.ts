@@ -2,10 +2,10 @@ export default {
   index: {
     display: 'hidden',
     title: 'Documentation',
-    theme: { 
-      layout: 'full', 
-      toc: true
-     },
+    theme: {
+      layout: 'full',
+      toc: true,
+    },
   },
   introduction: {
     title: 'Introduction',
@@ -19,6 +19,5 @@ export default {
     theme: {
       layout: 'full',
     },
-  }
+  },
 };
-

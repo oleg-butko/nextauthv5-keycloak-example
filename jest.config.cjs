@@ -6,6 +6,7 @@ const createJestConfig = nextJest({
 
 const customJestConfig = {
   setupFilesAfterEnv: ['<rootDir>/jest.setup.cjs'],
+  modulePathIgnorePatterns: ["<rootDir>/.next/","<rootDir>/node_modules/","<rootDir>/_files/", "<rootDir>/public/", "<rootDir>/.git/", "<rootDir>/.swc/"],
   moduleNameMapper: {
     '^@/components/(.*)$': '<rootDir>/components/$1',
     '^@/pages/(.*)$': '<rootDir>/pages/$1',
