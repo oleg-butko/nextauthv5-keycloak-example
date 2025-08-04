@@ -17,9 +17,7 @@ import { theme } from '../theme';
 import '@mantine/core/styles.layer.css';
 import '@mantine/core/styles.css';
 
-// -- nextra
 const banner = <Banner storageKey="some-key">Info message from nextra 🎉</Banner>;
-// const navbar = <Navbar logo={<b>Home</b>} />;
 const navbar = <MantineNavBar />;
 const footer = (
   <Footer>
