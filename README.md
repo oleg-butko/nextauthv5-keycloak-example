@@ -13,6 +13,7 @@
   </details>
 - Add Nextra
 - Add MantineNavBar from credits/1
+- Add localization from credits/2
 
 
 ## Features
@@ -24,6 +25,7 @@
   - [Jest](https://jestjs.io/) setup with [React Testing Library](https://testing-library.com/docs/react-testing-library/intro)
   - ESLint setup with [eslint-config-mantine](https://github.com/mantinedev/eslint-config-mantine)
 - [Nextra](https://github.com/shuding/nextra)
+  - [i18n](https://nextra.site/docs/guide/i18n)
 
 ## npm scripts from Mantine template
 
@@ -50,3 +52,4 @@
 
 ### Credits
 1. [Template](https://www.undolog.com/p/elevate-your-nextjs-project-with)  for NextJS app router + Mantine UI + Nextra
+2. [SWR i18n Example](https://github.com/shuding/nextra/tree/main/examples/swr-site)

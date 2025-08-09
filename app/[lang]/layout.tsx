@@ -1,0 +1,101 @@
+import React, { FC, ReactNode } from 'react';
+import Link from 'next/link';
+import { getDictionary, getDirection } from '@app/_dictionaries/get-dictionary';
+import { Footer, LastUpdated, Layout } from 'nextra-theme-docs';
+// -- nextra --
+// theme config options now should be passed as props https://the-guild.dev/blog/nextra-4
+// for Layout Navbar Footer Search and Banner
+import { Banner, Head } from 'nextra/components';
+import { getPageMap } from 'nextra/page-map';
+import { ColorSchemeScript, mantineHtmlProps, MantineProvider } from '@mantine/core';
+import { MantineNavBar } from '@/components';
+import { theme } from '../../theme';
+
+import '@mantine/core/styles.layer.css';
+import '@mantine/core/styles.css';
+import 'nextra-theme-docs/style.css';
+import './global.css';
+
+const banner = <Banner storageKey="some-key">Info message from nextra 🎉</Banner>;
+const footer = (
+  <Footer>
+    <p className="mt-6 text-xs">
+      © {new Date().getFullYear()} <Link href="https://github.com/oleg-butko">Oleg Butko</Link>
+    </p>
+  </Footer>
+);
+//
+// -- end of nextra
+//
+export const metadata = {
+  title: {
+    default: 'nextauthv5 keycloak',
+    // template: '%s | Nextra',
+    template: '%s',
+  },
+  // title: 'nextauthv5 keycloak example',
+  //   openGraph: {
+  //     url: 'https://nextra.site',
+  //     siteName: 'Nextra',
+  //     locale: 'en_US',
+  //     type: 'website',
+  //   },
+  description: 'Next.js, Mantine, NextAuth.js, Keycloak',
+};
+
+type LayoutProps = Readonly<{
+  children: ReactNode;
+  params: Promise<{
+    lang: string;
+  }>;
+}>;
+
+const RootLayout: FC<LayoutProps> = async ({ children, params }) => {
+  const { lang } = await params;
+  const dictionary = await getDictionary(lang);
+  const direction = getDirection(lang);
+  //   console.log('lang:', lang); // eslint-disable-line
+  if (lang === '_next') {
+    // TODO fix
+    console.warn(`return null, RootLayout lang: ${lang}`); // eslint-disable-line
+    return null;
+  }
+  // TODO lang === '_next':
+  // TypeError: {(intermediate value)(intermediate value)(intermediate value)}[lang] is not a function
+  const pageMap = await getPageMap(`/${lang}`);
+
+  return (
+    <html lang={lang} dir={direction} {...mantineHtmlProps}>
+      <Head>
+        <ColorSchemeScript />
+        <link rel="shortcut icon" href="/favicon.svg" />
+        <meta
+          name="viewport"
+          content="minimum-scale=1, initial-scale=1, width=device-width, user-scalable=no"
+        />
+      </Head>
+      <body>
+        <MantineProvider theme={theme}>
+          <Layout
+            banner={banner}
+            navbar={<MantineNavBar title={dictionary.logo.title} />}
+            pageMap={pageMap}
+            i18n={[
+              { locale: 'en', name: 'English' },
+              { locale: 'es', name: 'Español RTL' },
+              { locale: 'ru', name: 'Русский' },
+            ]}
+            lastUpdated={<LastUpdated>{dictionary.lastUpdated}</LastUpdated>}
+            sidebar={{ autoCollapse: true, defaultOpen: true }}
+            editLink="Edit this page"
+            docsRepositoryBase="https://github.com/oleg-butko/nextauthv5-keycloak-example/tree/master"
+            footer={footer}
+          >
+            {children}
+          </Layout>
+        </MantineProvider>
+      </body>
+    </html>
+  );
+};
+export default RootLayout;
