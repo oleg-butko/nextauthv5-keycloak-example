@@ -78,7 +78,7 @@ const RootLayout: FC<LayoutProps> = async ({ children, params }) => {
         <MantineProvider theme={theme}>
           <Layout
             banner={banner}
-            navbar={<MantineNavBar title={dictionary.logo.title} />}
+            navbar={<MantineNavBar key="navbar" title={dictionary.logo.title} />}
             pageMap={pageMap}
             i18n={[
               { locale: 'en', name: 'English' },

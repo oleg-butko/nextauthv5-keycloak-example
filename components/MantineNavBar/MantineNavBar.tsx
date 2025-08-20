@@ -1,5 +1,6 @@
 'use client';
 
+import React from 'react';
 import { Group, Title } from '@mantine/core';
 
 import '@mantine/core/styles.css';
@@ -16,6 +17,7 @@ import { MantineNextraThemeObserver } from '../MantineNextraThemeObserver/Mantin
  * @since 1.0.0
  *
  */
+
 export const MantineNavBar = ({ title }: { title: string }) => {
   return (
     <>
