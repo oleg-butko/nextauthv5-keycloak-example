@@ -36,7 +36,7 @@ export const theme = createTheme({
   headings: {
     fontFamily: 'Roboto, sans-serif',
     sizes: {
-      h1: { fontSize: 36 },
+      h1: { fontSize: '36' },
     },
   },
 });
