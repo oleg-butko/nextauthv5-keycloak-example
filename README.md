@@ -14,6 +14,9 @@
 - Add Nextra
 - Add MantineNavBar from credits/1
 - Add localization from credits/2
+- <details><summary>Update Next.js (v15.5.0), nextra (v4.3.0)</summary>
+  But there is issue with type check in `mdx-components.ts`
+  </details> 
 
 
 ## Features
