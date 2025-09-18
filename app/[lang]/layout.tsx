@@ -5,7 +5,7 @@ import { supportedLocales, supportedLocalesNames } from '@app/_i18n/locales';
 import { Footer, LastUpdated, Layout } from 'nextra-theme-docs';
 // theme config options now should be passed as props https://the-guild.dev/blog/nextra-4
 // for Layout Navbar Footer Search and Banner
-import { Banner, Head } from 'nextra/components';
+import { Banner, Head, Search } from 'nextra/components';
 import { getPageMap } from 'nextra/page-map';
 import { ColorSchemeScript, mantineHtmlProps, MantineProvider } from '@mantine/core';
 import { MantineNavBar } from '@/components';
@@ -96,6 +96,7 @@ const RootLayout: FC<LayoutProps> = async ({ children, params }) => {
             banner={banner}
             navbar={<MantineNavBar key="navbar" title={t('logo.title')} />}
             pageMap={pageMap}
+            search={<Search placeholder={t('searchPlaceholder')} />}
             i18n={supportedLocalesNames}
             themeSwitch={{ dark: t('dark'), light: t('light'), system: t('system') }}
             lastUpdated={<LastUpdated>{t('lastUpdated')}</LastUpdated>}
