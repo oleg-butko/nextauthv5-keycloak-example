@@ -1,16 +1,18 @@
 export default {
-  dark: 'Dark',
+  title: 'title(en)',
+  description: 'description(en)',
+  dark: 'Dark 123',
   light: 'Light',
   system: 'System',
   backToTop: 'Scroll to top',
   lastUpdated: 'Last updated on',
   logo: {
-    title: 'nextauthv5 keycloak example'
+    title: 'nextauthv5 keycloak example',
   },
   // notFound: 'This page could not be found',
   poweredBy: 'Powered by',
   link: {
-    vercel: 'https://vercel.com/?utm_source=swr'
+    vercel: 'https://vercel.com/?utm_source=swr',
   },
   lightweight: 'Lightweight',
   realtime: 'Realtime',
@@ -21,5 +23,5 @@ export default {
   typescript: 'TypeScript Ready',
   remoteLocal: 'Remote + Local',
   editPage: 'Edit this page on GitHub',
-  by: 'by'
-}
+  by: 'by',
+};

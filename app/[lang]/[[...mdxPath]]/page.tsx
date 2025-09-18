@@ -22,7 +22,7 @@ const Wrapper = getMDXComponents().wrapper;
 const Page: FC<PageProps> = async (props) => {
   const params = await props.params;
   //   console.log('Page params.lang', params.lang); // eslint-disable-line
-  if (params.lang === '_next') {
+  if (params.lang === '_next' || params.lang === 'public') {
     // TODO fix
     console.warn(`return null, [mdx]/page, lang: ${params.lang}`); // eslint-disable-line
     return null;

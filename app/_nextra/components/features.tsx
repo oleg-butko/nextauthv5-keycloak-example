@@ -1,6 +1,6 @@
 import type { FC } from 'react'
-import { getDictionary } from '../_dictionaries/get-dictionary'
-import type { Locale } from '../_dictionaries/i18n-config'
+import { getDictionary } from '../dictionaries/get-dictionary'
+import type { Locale } from '../dictionaries/i18n-config'
 import {
   BoxIcon,
   DotsVerticalIcon,
@@ -10,7 +10,7 @@ import {
   PauseIcon,
   PulseIcon,
   RainIcon
-} from '../_icons'
+} from '../../_icons'
 
 export const Features: FC<{
   lang: Locale

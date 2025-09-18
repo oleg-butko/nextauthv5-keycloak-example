@@ -1,18 +1,18 @@
-import { getDictionary } from '@app/_dictionaries/get-dictionary'
-import type { Locale } from '@app/_dictionaries/i18n-config'
-import type { FC } from 'react'
+import type { FC } from 'react';
+import { getDictionary } from '@app/_nextra/dictionaries/get-dictionary';
+import type { Locale } from '@app/_nextra/dictionaries/i18n-config';
 
 export const TopContent: FC<{
-  title: string
-  date: string
+  title: string;
+  date: string;
   authors: {
-    name: string
-    link: string
-  }[]
-  lang: Locale
+    name: string;
+    link: string;
+  }[];
+  lang: Locale;
 }> = async ({ title, date, authors, lang }) => {
-  const dictionary = await getDictionary(lang)
-  const dateObj = new Date(date)
+  const dictionary = await getDictionary(lang);
+  const dateObj = new Date(date);
   return (
     <>
       <h1>{title}</h1>
@@ -21,11 +21,11 @@ export const TopContent: FC<{
           {dateObj.toLocaleDateString(lang, {
             month: 'long',
             day: 'numeric',
-            year: 'numeric'
+            year: 'numeric',
           })}
         </time>{' '}
         {dictionary.by}{' '}
-        {authors.map(author => (
+        {authors.map((author, index) => (
           <span key={author.name} className="not-last:after:content-[',_']">
             <a
               href={author.link}
@@ -34,10 +34,11 @@ export const TopContent: FC<{
               className="text-gray-800 dark:text-gray-100"
             >
               {author.name}
+              {`${index === authors.length - 1 ? '' : ', '}`}
             </a>
           </span>
         ))}
       </div>
     </>
-  )
-}
+  );
+};

@@ -1,6 +1,8 @@
 import type { Dictionary } from './i18n-config'
 
 export default {
+  title: 'title(ru)',
+  description: 'description(ru)',
   dark: 'Темный',
   light: 'Светлый',
   system: 'Системный',

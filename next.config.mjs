@@ -25,6 +25,8 @@ const withNextra = nextra({
 export default withNextra(
   withBundleAnalyzer({
     output: 'standalone',
+    // https://nextjs.org/docs/app/api-reference/config/next-config-js/trailingSlash
+    trailingSlash: false,
     reactStrictMode: true,
     cleanDistDir: true,
     eslint: {

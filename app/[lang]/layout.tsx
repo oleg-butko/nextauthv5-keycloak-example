@@ -1,8 +1,8 @@
 import React, { FC, ReactNode } from 'react';
 import Link from 'next/link';
-import { getDictionary, getDirection } from '@app/_dictionaries/get-dictionary';
+import { getDirection, getT } from '@app/_i18n';
+import { supportedLocales, supportedLocalesNames } from '@app/_i18n/locales';
 import { Footer, LastUpdated, Layout } from 'nextra-theme-docs';
-// -- nextra --
 // theme config options now should be passed as props https://the-guild.dev/blog/nextra-4
 // for Layout Navbar Footer Search and Banner
 import { Banner, Head } from 'nextra/components';
@@ -16,6 +16,10 @@ import '@mantine/core/styles.css';
 import 'nextra-theme-docs/style.css';
 import './global.css';
 
+export async function generateStaticParams() {
+  return supportedLocales.locales.map((lng) => ({ lng }));
+}
+
 const banner = <Banner storageKey="some-key">Info message from nextra 🎉</Banner>;
 const footer = (
   <Footer>
@@ -24,24 +28,33 @@ const footer = (
     </p>
   </Footer>
 );
-//
-// -- end of nextra
-//
-export const metadata = {
-  title: {
-    default: 'nextauthv5 keycloak',
-    // template: '%s | Nextra',
-    template: '%s',
-  },
-  // title: 'nextauthv5 keycloak example',
-  //   openGraph: {
-  //     url: 'https://nextra.site',
-  //     siteName: 'Nextra',
-  //     locale: 'en_US',
-  //     type: 'website',
-  //   },
-  description: 'Next.js, Mantine, NextAuth.js, Keycloak',
-};
+
+export async function generateMetadata() {
+  // https://nextjs.org/docs/app/api-reference/functions/generate-metadata
+  const { t } = await getT('default');
+  return {
+    title: t('title'),
+    content: 'Metadata content',
+    description: t('description'),
+    keywords: ['Next.js', 'React', 'JavaScript'],
+  };
+}
+
+// export const metadata = {
+//   title: {
+//     default: 'nextauthv5 keycloak',
+//     // template: '%s | Nextra',
+//     template: '%s',
+//   },
+//   // title: 'nextauthv5 keycloak example',
+//   //   openGraph: {
+//   //     url: 'https://nextra.site',
+//   //     siteName: 'Nextra',
+//   //     locale: 'en_US',
+//   //     type: 'website',
+//   //   },
+//   description: 'Next.js, Mantine, NextAuth.js, Keycloak',
+// };
 
 type LayoutProps = Readonly<{
   children: ReactNode;
@@ -52,14 +65,17 @@ type LayoutProps = Readonly<{
 
 const RootLayout: FC<LayoutProps> = async ({ children, params }) => {
   const { lang } = await params;
-  const dictionary = await getDictionary(lang);
   const direction = getDirection(lang);
-  //   console.log('lang:', lang); // eslint-disable-line
-  if (lang === '_next') {
+  console.log('RootLayout lang:', lang);
+  // also app/[lang]/[[...mdxPath]]\page.tsx
+  if (lang === '_next' || lang === 'public') {
     // TODO fix
     console.warn(`return null, RootLayout lang: ${lang}`); // eslint-disable-line
     return null;
   }
+  const { t } = await getT('default');
+  console.log('RootLayout t(title):', t('title'), t('lastUpdated'));
+
   // TODO lang === '_next':
   // TypeError: {(intermediate value)(intermediate value)(intermediate value)}[lang] is not a function
   const pageMap = await getPageMap(`/${lang}`);
@@ -78,17 +94,16 @@ const RootLayout: FC<LayoutProps> = async ({ children, params }) => {
         <MantineProvider theme={theme}>
           <Layout
             banner={banner}
-            navbar={<MantineNavBar key="navbar" title={dictionary.logo.title} />}
+            navbar={<MantineNavBar key="navbar" title={t('logo.title')} />}
             pageMap={pageMap}
-            i18n={[
-              { locale: 'en', name: 'English' },
-              { locale: 'es', name: 'Español RTL' },
-              { locale: 'ru', name: 'Русский' },
-            ]}
-            lastUpdated={<LastUpdated>{dictionary.lastUpdated}</LastUpdated>}
+            i18n={supportedLocalesNames}
+            themeSwitch={{ dark: t('dark'), light: t('light'), system: t('system') }}
+            lastUpdated={<LastUpdated>{t('lastUpdated')}</LastUpdated>}
             sidebar={{ autoCollapse: true, defaultOpen: true }}
-            editLink="Edit this page"
             docsRepositoryBase="https://github.com/oleg-butko/nextauthv5-keycloak-example/tree/master"
+            editLink={t('editThisPage')}
+            feedback={{ content: t('giveUsFeedback') }}
+            toc={{ backToTop: t('backToTop'), title: t('onThisPage') }}
             footer={footer}
           >
             {children}

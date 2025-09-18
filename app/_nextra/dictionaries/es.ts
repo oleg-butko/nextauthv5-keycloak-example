@@ -1,6 +1,8 @@
 import type { Dictionary } from './i18n-config'
 
 export default {
+  title: 'title(es)',
+  description: 'description(es)',
   dark: 'Oscuro',
   light: 'Luz',
   system: 'Sistema',

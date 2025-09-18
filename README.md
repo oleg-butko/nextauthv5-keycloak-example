@@ -14,9 +14,12 @@
 - Add Nextra
 - Add MantineNavBar from credits/1
 - Add localization from credits/2
-- <details><summary>Update Next.js (v15.5.0), nextra (v4.3.0)</summary>
-  But there is issue with type check in `mdx-components.ts`
-  </details> 
+- Update Next.js (v15.5.0), nextra (v4.3.0)
+  - But there is issue with type check in `mdx-components.ts`
+- Add [helper](https://github.com/i18next/next-app-dir-i18next-example/tree/main/app/i18n) from credits/3
+  - helper -> `@app/_i18n`
+- Update Next.js (v15.5.2)
+- Add SignIn button
 
 
 ## Features
@@ -56,3 +59,4 @@
 ### Credits
 1. [Template](https://www.undolog.com/p/elevate-your-nextjs-project-with)  for NextJS app router + Mantine UI + Nextra
 2. [SWR i18n Example](https://github.com/shuding/nextra/tree/main/examples/swr-site)
+3. [Simplifying i18next Setup in Next.js App Router](https://www.locize.com/blog/i18n-next-app-router)

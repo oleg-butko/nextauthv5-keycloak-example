@@ -3,7 +3,7 @@ export default {
     type: 'page',
     display: 'hidden',
     theme: {
-      sidebar: true,
+      sidebar: false,
       timestamp: false,
       typesetting: 'article',
       toc: false
