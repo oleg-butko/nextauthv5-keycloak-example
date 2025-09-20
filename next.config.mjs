@@ -1,5 +1,6 @@
 import bundleAnalyzer from '@next/bundle-analyzer';
 import nextra from 'nextra';
+import { supportedLocales } from './app/_i18n/locales.js';
 
 const withBundleAnalyzer = bundleAnalyzer({
   enabled: process.env.ANALYZE === 'true',
@@ -11,9 +12,12 @@ const withBundleAnalyzer = bundleAnalyzer({
 const withNextra = nextra({
   defaultShowCopyCode: true,
   latex: true,
-  search: {
-    codeblocks: false,
-  },
+  // https://nextra.site/docs/guide/search
+  // TODO https://pagefind.app/docs/node-api/
+  search: false, // no effect?
+  //   search: {
+  //     codeblocks: false,
+  //   },
   // https://github.com/shuding/nextra/issues/3934#issuecomment-2610808433
   unstable_shouldAddLocaleToLinks: true,
   contentDirBasePath: '/',
@@ -24,7 +28,12 @@ const withNextra = nextra({
 //
 export default withNextra(
   withBundleAnalyzer({
+    images: {
+      unoptimized: true,
+    },
     output: 'standalone',
+    // https://nextra.site/docs/guide/static-exports
+    // output: 'export',
     // https://nextjs.org/docs/app/api-reference/config/next-config-js/trailingSlash
     trailingSlash: false,
     reactStrictMode: true,
@@ -35,8 +44,8 @@ export default withNextra(
       ignoreDuringBuilds: true,
     },
     i18n: {
-      locales: ['en', 'es', 'ru'],
-      defaultLocale: 'en',
+      locales: supportedLocales.locales,
+      defaultLocale: supportedLocales.defaultLocale,
     },
     redirects: async () => [
       {

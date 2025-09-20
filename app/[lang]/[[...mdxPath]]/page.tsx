@@ -2,7 +2,7 @@ import type { FC } from 'react';
 import { generateStaticParamsFor, importPage } from 'nextra/pages';
 import { useMDXComponents as getMDXComponents } from '../../../mdx-components';
 
-export const generateStaticParams = generateStaticParamsFor('mdxPath');
+export const generateStaticParams = generateStaticParamsFor('mdxPath', 'lang');
 
 export async function generateMetadata(props: PageProps) {
   const params = await props.params;
