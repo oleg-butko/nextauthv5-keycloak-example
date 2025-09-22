@@ -12,7 +12,7 @@ interface UserButtonProps extends UnstyledButtonProps {
 }
 
 export function UserButton({ image, name, email, icon, ...others }: UserButtonProps) {
-  const { t } = useT('client-page');
+  const { t } = useT('general');
   const signedIn = false;
 
   return !signedIn ? (

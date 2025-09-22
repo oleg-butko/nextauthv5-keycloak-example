@@ -19,7 +19,7 @@
 - Add [helper](https://github.com/i18next/next-app-dir-i18next-example/tree/main/app/i18n) from credits/3
   - helper -> `@app/_i18n`
 - Update Next.js (v15.5.2)
-- Add SignIn button
+- Add UserMenu with SignIn/Settings/etc
 
 
 ## Features

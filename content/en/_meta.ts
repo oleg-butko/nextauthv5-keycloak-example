@@ -13,19 +13,6 @@ export default {
     type: 'page',
     title: 'Documentation'
   },
-  about: {
-    type: 'menu',
-    title: 'About',
-    items: {
-      contributors: {
-        href: 'https://github.com/vercel/swr/graphs/contributors'
-      },
-      team: '',
-      acknowledgement: '',
-      'a-page': '',
-      changelog: ''
-    }
-  },
   examples: {
     type: 'page',
     title: 'Examples',
@@ -41,9 +28,17 @@ export default {
       typesetting: 'article'
     }
   },
-  nextra_link: {
-    type: 'page',
-    title: 'Nextra',
-    href: 'https://github.com/shuding/nextra'
+  about: {
+    type: 'menu',
+    title: 'More',
+    items: {
+      contributors: {
+        href: 'https://github.com/vercel/swr/graphs/contributors'
+      },
+      team: '',
+      acknowledgement: '',
+      'a-page': '',
+      changelog: ''
+    }
   }
 }

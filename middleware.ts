@@ -26,7 +26,7 @@ export default async function middleware(request: NextRequest) {
   //
   // helper from https://www.locize.com/blog/i18n-next-app-router
   //
-  const showLogAboutLang = true; // verbose
+  const showLogAboutLang = false; // verbose
   let lng;
   if (request.cookies.has(cookieName)) {
     lng = acceptLanguage.get(request.cookies.get(cookieName)?.value);

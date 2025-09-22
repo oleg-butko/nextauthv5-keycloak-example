@@ -1,13 +1,9 @@
 import React, { FC, ReactNode } from 'react';
 import Link from 'next/link';
 import { getDirection, getT } from '@app/_i18n';
-// import { supportedLocales, supportedLocalesNames } from '@app/_i18n/locales';
 import { supportedLocalesNames } from '@app/_i18n/locales';
 import { Footer, LastUpdated, Layout } from 'nextra-theme-docs';
-// theme config options now should be passed as props https://the-guild.dev/blog/nextra-4
-// for Layout Navbar Footer Search and Banner
-// import { Banner, Head, Search } from 'nextra/components';
-import { Banner, Head } from 'nextra/components';
+import { Banner, Head } from 'nextra/components'; // Search
 import { getPageMap } from 'nextra/page-map';
 import { generateStaticParamsFor } from 'nextra/pages';
 import { ColorSchemeScript, mantineHtmlProps, MantineProvider } from '@mantine/core';
@@ -20,9 +16,6 @@ import 'nextra-theme-docs/style.css';
 import './global.css';
 
 export const generateStaticParams = generateStaticParamsFor('lang');
-// export async function generateStaticParams() {
-//   return supportedLocales.locales.map((lng) => ({ lng }));
-// }
 
 const banner = <Banner storageKey="some-key">Info message from nextra 🎉</Banner>;
 const footer = (
@@ -88,7 +81,7 @@ const RootLayout: FC<LayoutProps> = async ({ children, params }) => {
             i18n={supportedLocalesNames}
             themeSwitch={{ dark: t('dark'), light: t('light'), system: t('system') }}
             lastUpdated={<LastUpdated>{t('lastUpdated')}</LastUpdated>}
-            sidebar={{ autoCollapse: true, defaultOpen: true }}
+            sidebar={{ autoCollapse: true, defaultMenuCollapseLevel: 1, defaultOpen: true }}
             docsRepositoryBase="https://github.com/oleg-butko/nextauthv5-keycloak-example/tree/master"
             editLink={t('editThisPage')}
             feedback={{ content: t('giveUsFeedback') }}

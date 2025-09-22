@@ -5,10 +5,8 @@ import { Group, Title } from '@mantine/core';
 
 import '@mantine/core/styles.css';
 
-import { LocaleSwitch, Navbar } from 'nextra-theme-docs';
-import userImage from '@/public/flaticon/user.png';
-import { UserButton } from '../auth/UserButton';
-import { ColorSchemeControl } from '../ColorSchemeControl/ColorSchemeControl';
+import { Navbar } from 'nextra-theme-docs';
+import { UserMenu } from '../auth/UserMenu';
 import { Logo } from '../Logo/Logo';
 import { MantineNextraThemeObserver } from '../MantineNextraThemeObserver/MantineNextraThemeObserver';
 
@@ -35,9 +33,7 @@ export const MantineNavBar = ({ title }: { title: string }) => {
         }
       >
         <>
-          <ColorSchemeControl />
-          <LocaleSwitch lite />
-          <UserButton image={userImage.src} name="user name" email="user@somesite.com" />
+          <UserMenu />
         </>
       </Navbar>
     </>
