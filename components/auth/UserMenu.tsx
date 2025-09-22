@@ -36,7 +36,7 @@ export function UserMenu() {
     <Menu
       //   withArrow
       shadow="md"
-      zIndex={10} // NOTE workaround for LocaleSwitch, it's menu is not visible otherwise
+      zIndex={10} // NOTE workaround for LocaleSwitch, its menu is not visible otherwise
       offset={5}
       opened={opened}
       onOpen={() => setOpened(true)}
