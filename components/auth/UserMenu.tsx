@@ -34,8 +34,10 @@ export function UserMenu() {
   const [opened, setOpened] = useState(false);
   return (
     <Menu
+      //   withArrow
+      shadow="md"
       zIndex={10} // NOTE workaround for LocaleSwitch, it's menu is not visible otherwise
-      offset={0}
+      offset={5}
       opened={opened}
       onOpen={() => setOpened(true)}
       onClose={() => setOpened(false)}
