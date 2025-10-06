@@ -56,6 +56,11 @@
 - `storybook:build` – build production storybook bundle to `storybook-static`
 - `prettier:write` – formats all files with Prettier
 
+### Todo
+- pino
+- NextAuthv5
+- Keycloak config
+  
 ### Credits
 1. [Template](https://www.undolog.com/p/elevate-your-nextjs-project-with)  for NextJS app router + Mantine UI + Nextra
 2. [SWR i18n Example](https://github.com/shuding/nextra/tree/main/examples/swr-site)
